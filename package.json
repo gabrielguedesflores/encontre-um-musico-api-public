@@ -1,0 +1,22 @@
+{
+  "name": "encontre-musico-api",
+  "version": "1.0.0",
+  "description": "api de comunicacao da aplicaçao frontend com o a aplicacao backend e database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielguedesflores/encontre-um-musico-api.git"
+  },
+  "author": "Gabriel Guedes Flores",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielguedesflores/encontre-um-musico-api/issues"
+  },
+  "homepage": "https://github.com/gabrielguedesflores/encontre-um-musico-api#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
