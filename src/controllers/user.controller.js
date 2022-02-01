@@ -3,16 +3,16 @@ const db = require("../config/database");
 // ==> Método responsável por criar um novo 'User':
 
 exports.createUser = async (req, res) => {
-  const { user_full_name, user_name, user_email, user_pass } = req.body;
+  const { user_full_name, user_name, user_email, user_pass, user_bio, user_state, user_city, user_image, user_twitter, user_facebook, user_instagram } = req.body;
   const { rows } = await db.query(
-    "INSERT INTO users (user_full_name, user_name, user_email, user_pass) VALUES ($1, $2, $3, $4)",
-    [user_full_name, user_name, user_email, user_pass]
+    "INSERT INTO users (user_full_name, user_name, user_email, user_pass, user_bio, user_state, user_city, user_image, user_twitter, user_facebook, user_instagram) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)",
+    [user_full_name, user_name, user_email, user_pass, user_bio, user_state, user_city, user_image, user_twitter, user_facebook, user_instagram]
   );
 
   res.status(201).send({
     message: "User added successfully!",
     body: {
-      user: { user_full_name, user_name, user_email, user_pass }
+      user: { user_full_name, user_name, user_email, user_pass, user_bio, user_state, user_city, user_image, user_twitter, user_facebook, user_instagram }
     },
   });
 };
