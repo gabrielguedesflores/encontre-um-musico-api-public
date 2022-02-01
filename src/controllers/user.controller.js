@@ -22,3 +22,10 @@ exports.listAllUsers = async (req, res) => {
   const response = await db.query('SELECT * FROM users ORDER BY user_full_name ASC');
   res.status(200).send(response.rows);
 };
+
+// ==> Método responsável por selecionar 'User' pelo 'Id':
+exports.findUserById = async (req, res) => {
+  const user_id = parseInt(req.params.user_id);
+  const response = await db.query('SELECT * FROM users WHERE user_id = $1', [user_id]);
+  res.status(200).send(response.rows);
+}
