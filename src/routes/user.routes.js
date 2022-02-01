@@ -13,5 +13,7 @@ router.get('/users', userController.listAllUsers);
 // ==> Rota responsável por selecionar 'User' pelo 'user_id': (GET): localhost:3000/api/users/:user_id
 router.get('/users/:user_id', userController.findUserById);
 
+// ==> Rota responsável por logar via API: (POST): localhost:3000/api/users/login
+router.post('/users/login', userController.loginToUser);
 
 module.exports = router;

@@ -29,3 +29,17 @@ exports.findUserById = async (req, res) => {
   const response = await db.query('SELECT * FROM users WHERE user_id = $1', [user_id]);
   res.status(200).send(response.rows);
 }
+
+exports.loginToUser = async (req, res) => {
+  const { user_name, user_pass } = req.body;
+  const { rows } = await db.query(
+    "SELECT * FROM users WHERE user_name = $1 AND user_pass = $2", [user_name, user_pass]
+  );
+
+  res.status(200).send({
+    message: "User exists",
+    body: {
+      user: rows
+    },
+  });
+};
