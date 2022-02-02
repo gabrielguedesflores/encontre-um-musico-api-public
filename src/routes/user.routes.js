@@ -10,7 +10,7 @@ router.post('/user', userController.createUser);
 router.get('/users', userController.listAllUsers);
 
 // ==> Rota responsável por listar todos os 'Users' ativos: (GET): localhost:3000/api/users
-router.get('/users/:user_active', userController.listAllUsersActive);
+router.get('/users/active/:user_active', userController.listAllUsersActive);
 
 // ==> Rota responsável por selecionar 'User' pelo 'user_id': (GET): localhost:3000/api/users/:user_id
 router.get('/users/:user_id', userController.findUserById);
