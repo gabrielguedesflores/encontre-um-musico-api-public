@@ -52,7 +52,15 @@ exports.loginToUser = async (req, res) => {
 };
 
 exports.alterActiveUser = async (req, res) => {
-  const user_id = parseInt(req.params.user_id);
-  const response = await db.query('SELECT * FROM users WHERE user_id = $1', [user_id]);
-  res.status(200).send(response.rows);
-}
+  const { user_active, user_id } = req.body;
+  const { rows } = await db.query(
+    "UPDATE users SET user_active = $1 WHERE user_id = $2;", [user_active, user_id]
+  );
+
+  res.status(200).send({
+    message: "User Updated!",
+    body: {
+      user: rows
+    },
+  });
+};

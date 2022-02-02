@@ -19,6 +19,6 @@ router.get('/users/:user_id', userController.findUserById);
 router.post('/users/login', userController.loginToUser);
 
 // ==> Rota responsável por inativar um usuário via API: (PUT): localhost:3000/api/user
-router.put('/user/delete/:user:id', userController.alterActiveUser);
+router.put('/user/active', userController.alterActiveUser);
 
 module.exports = router;
