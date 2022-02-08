@@ -64,3 +64,9 @@ exports.alterActiveUser = async (req, res) => {
     },
   });
 };
+
+// ==> Método responsável por buscar os badges de instrumentos:
+exports.instrument_badges = async (req, res) => {
+  const response = await db.query('SELECT * FROM instrument_badges;');
+  res.status(200).send(response.rows);
+};

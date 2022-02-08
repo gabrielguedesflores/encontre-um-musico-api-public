@@ -21,4 +21,8 @@ router.post('/users/login', userController.loginToUser);
 // ==> Rota responsável por inativar um usuário via API: (PUT): localhost:3000/api/user
 router.put('/user/active', userController.alterActiveUser);
 
+// ==> Rota responsável por retornar os instrumentos disponíveis via API: (GET): localhost:3000/api/user
+router.get('/user/instrument_badges', userController.instrument_badges);
+
+
 module.exports = router;
