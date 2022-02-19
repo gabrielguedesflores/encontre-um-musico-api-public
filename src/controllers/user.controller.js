@@ -1,7 +1,9 @@
 const db = require("../config/database");
+//const { jwtTokenDecodificator } = require("./jwtTokenManipulator");
+const jwt = require("bcryptjs");
+
 
 // ==> Método responsável por criar um novo 'User':
-
 exports.createUser = async (req, res) => {
   const { user_full_name, user_name, user_email, user_pass, user_bio, user_state, user_city, user_image, user_twitter, user_facebook, user_instagram, user_active } = req.body;
   const { rows } = await db.query(
@@ -69,4 +71,25 @@ exports.alterActiveUser = async (req, res) => {
 exports.instrument_badges = async (req, res) => {
   const response = await db.query('SELECT * FROM instrument_badges;');
   res.status(200).send(response.rows);
+};
+
+exports.decodeToken = async (req, res) => {
+  const { user_token } = req.body;
+  console.log(jwt.decode(req.body));
+  const { rows } = await db.query("SELECT * FROM users");
+
+  res.status(200).send({
+    acess_token: user_token,
+  });
+};
+
+exports.userFriends = async (req, res) => {
+  const { user_id } = req.body;
+  const { rows } = await db.query(
+    "SELECT * FROM friends WHERE user_id = $1", [user_id]
+  );
+
+  res.status(200).send({
+    user_friends: rows,
+  });
 };

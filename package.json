@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/gabrielguedesflores/encontre-um-musico-api#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^15.0.0",
     "express": "^4.17.2",
     "express-promise-router": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.1"
   },
   "devDependencies": {

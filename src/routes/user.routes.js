@@ -24,5 +24,10 @@ router.put('/user/active', userController.alterActiveUser);
 // ==> Rota responsável por retornar os instrumentos disponíveis via API: (GET): localhost:3000/api/user
 router.get('/user/instrument_badges', userController.instrument_badges);
 
+// ==> Rota responsável decodificar o token JWT e retornar para o frontend: (POST): localhost:3000/api/user/token
+router.post('/user/token', userController.decodeToken);
+
+// ==> Rota responsável retornar a lista de amigos do usuário: (POST): localhost:3000/api/user/friends
+router.post('/user/friends', userController.userFriends);
 
 module.exports = router;
