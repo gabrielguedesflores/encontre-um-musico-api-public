@@ -30,4 +30,10 @@ router.post('/user/token', userController.decodeToken);
 // ==> Rota responsável retornar a lista de amigos do usuário: (POST): localhost:3000/api/user/friends
 router.post('/user/friends', userController.userFriends);
 
+// ==> Rota responsável retornar a usuário filtrando pelo instrumento: (POST): localhost:3000/api/user/findUsersByBadge
+router.post('/user/findUsersByBadge', userController.findBadges);
+
+// ==> Rota responsável por validar se o usuário existe para redefinir a senha: (POST): localhost:3000/api/user/forgotPassword
+router.post('/user/forgotPassword', userController.forgotPassword);
+
 module.exports = router;

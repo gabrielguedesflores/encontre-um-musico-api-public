@@ -93,3 +93,25 @@ exports.userFriends = async (req, res) => {
     user_friends: rows,
   });
 };
+
+exports.findBadges = async (req, res) => {
+  const { instrument_badges_id } = req.body;
+  const { rows } = await db.query(
+    "SELECT * FROM users WHERE instrument_badges_id LIKE %$1%", [ instrument_badges_id ]
+  );
+
+  res.status(200).send({
+    instrument_badges: rows,
+  });
+};
+
+exports.forgotPassword = async (req, res) => {
+  const { user_name } = req.body;
+  const { rows } = await db.query(
+    "SELECT * FROM users WHERE user_name = $1", [ user_name ]
+  );
+
+  res.status(200).send({
+    user_data: rows,
+  });
+};
