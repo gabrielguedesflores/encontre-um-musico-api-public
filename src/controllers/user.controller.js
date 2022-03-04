@@ -115,3 +115,14 @@ exports.forgotPassword = async (req, res) => {
     user_data: rows,
   });
 };
+
+exports.changePassword = async (req, res) => {
+  const { user_pass, user_id } = req.body;
+  const { rows } = await db.query(
+    "UPDATE users SET user_pass = $1 WHERE user_id = $2", [ user_pass, user_id ]
+  );
+
+  res.status(200).send({
+    log: 'Password changed!',
+  });
+};

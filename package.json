@@ -4,7 +4,8 @@
   "description": "api de comunicacao da aplicaçao frontend com o a aplicacao backend e database",
   "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:start": "nodemon server.js"
   },
   "repository": {
     "type": "git",

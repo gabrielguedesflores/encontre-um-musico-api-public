@@ -36,4 +36,7 @@ router.post('/user/findUsersByBadge', userController.findBadges);
 // ==> Rota responsável por validar se o usuário existe para redefinir a senha: (POST): localhost:3000/api/user/forgotPassword
 router.post('/user/forgotPassword', userController.forgotPassword);
 
+// ==> Rota responsável por trocar a senha: (POST): localhost:3000/api/user/changePassword
+router.post('/user/changePassword', userController.changePassword);
+
 module.exports = router;
